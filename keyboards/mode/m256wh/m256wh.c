@@ -24,7 +24,7 @@ enum via_secondrow_enable {
 
 // Sets the second RGB row on or off; done by setting effect range.
 void set_second_rgb_row(bool is_active) {
-    rgblight_enable_noeeprom();
+    rgblight_disable_noeeprom();
     switch (is_active)
     {
         case true:
@@ -43,7 +43,7 @@ void set_second_rgb_row(bool is_active) {
 
 // At the keyboard start, retrieves PMEM stored configs
 void keyboard_post_init_kb(void) {
-    rgblight_enable_noeeprom();
+    rgblight_disable_noeeprom();
     wait_ms(20);
     eeconfig_read_kb_datablock(&is_second_rgb_row_active);
     set_second_rgb_row(is_second_rgb_row_active);
@@ -59,7 +59,7 @@ void eeconfig_init_kb(void) {  // EEPROM is getting reset!
     eeconfig_update_kb_datablock(&is_second_rgb_row_active);
 
     // Disable rgblight by default on EEPROM initialization
-    rgblight_enable();
+    rgblight_disable();
 
     // Run user code if any
     eeconfig_init_user();
