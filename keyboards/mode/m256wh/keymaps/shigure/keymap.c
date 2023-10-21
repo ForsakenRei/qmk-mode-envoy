@@ -84,21 +84,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // RGB layers
 const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 30, HSV_WHITE});
-const rgblight_segment_t PROGMEM my_layer1_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 15, HSV_GOLD},
-    {15, 15, HSV_SPRINGGREEN});
-const rgblight_segment_t PROGMEM my_layer2_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 15, HSV_GREEN},
-    {15, 15, HSV_AZURE});
-const rgblight_segment_t PROGMEM my_layer3_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 15, HSV_GOLDENROD},
-    {15, 15, HSV_MAGENTA});
+const rgblight_segment_t PROGMEM my_nav_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 30, HSV_GOLD});
+const rgblight_segment_t PROGMEM my_num_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 30, HSV_CYAN});
+const rgblight_segment_t PROGMEM my_util_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 30, HSV_CORAL});
 
 const rgblight_segment_t *const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     my_capslock_layer,
-    my_layer1_layer,
-    my_layer2_layer,
-    my_layer3_layer);
+    my_nav_layer,
+    my_num_layer,
+    my_util_layer);
 
 bool led_update_user(led_t led_state)
 {
@@ -112,6 +109,11 @@ layer_state_t layer_state_set_user(layer_state_t state)
     rgblight_set_layer_state(2, layer_state_cmp(state, _L2));
     rgblight_set_layer_state(3, layer_state_cmp(state, _L3));
     return state;
+}
+
+void keyboard_post_init_user(void)
+{
+    rgblight_layers = my_rgb_layers;
 }
 
 // tap dance
@@ -295,11 +297,6 @@ tap_dance_action_t tap_dance_actions[] = {
     [HOME_PAGEUP] = ACTION_TAP_DANCE_DOUBLE(KC_PGUP, KC_HOME),
     [END_PAGEDOWN] = ACTION_TAP_DANCE_DOUBLE(KC_PGDN, KC_END),
 };
-
-void keyboard_post_init_user(void)
-{
-    rgblight_layers = my_rgb_layers;
-}
 
 // key override
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
