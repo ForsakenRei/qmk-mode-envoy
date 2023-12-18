@@ -85,9 +85,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 30, HSV_WHITE});
 const rgblight_segment_t PROGMEM my_nav_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 30, HSV_GOLD});
+    {0, 30, HSV_GOLDENROD});
 const rgblight_segment_t PROGMEM my_num_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 30, HSV_CYAN});
+    {0, 30, HSV_CHARTREUSE});
 const rgblight_segment_t PROGMEM my_util_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 30, HSV_CORAL});
 
