@@ -46,6 +46,10 @@ enum td_keycodes
 #define SFT_DEL S(KC_DEL)
 #define HOME_PU TD(HOME_PAGEUP)
 #define END_PD TD(END_PAGEDOWN)
+#define SCR_LFT G(S(KC_LEFT))
+#define SCR_RHT G(S(KC_RGHT))
+#define VD_LEFT G(C(KC_LEFT))
+#define VD_RGHT G(C(KC_RIGHT))
 
 bool _isWinKeyDisabled = false;
 
@@ -60,14 +64,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [1] = LAYOUT_65_ansi_blocker(
     KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_DEL,  KC_INS,
     _______, KC_HOME, KC_UP,   KC_END,  KC_PGUP, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_PSCR,
-    _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
+    _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, _______, VD_LEFT, SCR_LFT, SCR_RHT, VD_RGHT, _______, _______, _______,          _______,
     _______, KC_WBAK, KC_BSPC, KC_WFWD, _______, _______, SERACH,  TSK_MGR, _______, _______, _______, _______,          _______, KC_MUTE,
     _______, _______, _______,                            KC_DEL,                    _______, CTL_APP,          _______, _______, _______
 ),
 [2] = LAYOUT_65_ansi_blocker(
     _______, KC_1,    KC_2,    KC_3,    _______, _______, _______, _______, _______, _______, _______, _______, _______, SFT_DEL, KC_SLEP,
     _______, KC_4,    KC_5,    KC_6,    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, KC_7,    KC_8,    KC_9,    _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
+    _______, KC_7,    KC_8,    KC_9,    _______, _______, VD_LEFT, SCR_LFT, SCR_RHT, VD_RGHT, _______, _______, _______,          _______,
     _______, KC_0,    _______, KC_CALC, _______, _______, _______, TSK_MGR, _______, _______, _______, _______,          KC_BSPC, _______,
     _______, GU_TOGG, _______,                            KC_DEL,                    _______, _______,          KC_WBAK, KC_F5,   KC_WFWD
 ),
