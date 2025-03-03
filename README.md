@@ -2,7 +2,7 @@
 
 ## Flash Guide
 
-1. Hold `ESC` and plug the board in
+1. Hold `ESC` and plug the board in, or press `\` on layer 3.
 2. Flash the firmware
 
 ### QMK CLI
